@@ -1,71 +1,69 @@
 <template>
-  <div class="w-full overflow-hidden">
-    <!-- Title1 (스크롤 버튼 포함) -->
-    <!-- 첫 번째 섹션 -->
-    <section class="h-screen">
-      <Title1Component @scroll-next="scrollToNext" />
-    </section>
-
-    <!-- 두 번째 섹션 -->
-    <section ref="title2Ref" class="bg-white">
-      <Title2Component />
-    </section>
-    <!-- moncat factory solution 섹션 -->
-    <section class="bg-white w-full h-[2000px]">
-      <div class="bg-gray-200 w-full h-[300px]">
-        <h2>Moncat Factory Solution</h2>
-        <!-- 여기에 내용 삽입 가능 -->
-         <TitleSub1Component/>
-         <TitleSub2Component/>
-         <TitleSub3Component/>
-         <TitleSub4Component/>   
+  <div class="font-sans text-gray-800">
+  
+    <!-- Hero Section -->
+    <section id="home" class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white pt-20">
+      <div class="px-4 w-full max-w-[100%]">
+        <div class="grid grid-cols-6 sm:grid-cols-8 lg:grid-cols-12 gap-4 items-center">
+          <div class="col-span-6 sm:col-span-8 lg:col-span-12 text-center">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4">Welcome to Our Company</h1>
+            <p class="text-lg mb-6">We provide innovative solutions to boost your business.</p>
+            <a href="#services" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition">Our Services</a>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gray-50">
+      <div class="px-4 w-full max-w-[100%]">
+        <div class="grid grid-cols-6 sm:grid-cols-8 lg:grid-cols-12 gap-6 items-center">
+          <div class="col-span-6 sm:col-span-8 lg:col-span-6">
+            <img src="/office.jpg" alt="About Us" class="rounded-lg shadow-lg" />
+          </div>
+          <div class="col-span-6 sm:col-span-8 lg:col-span-6">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">About Our Company</h2>
+            <p class="mb-4">We specialize in delivering cutting-edge solutions that improve efficiency, reduce costs, and enhance competitiveness. Our team of experts is dedicated to making your vision a reality.</p>
+            <p>With years of experience in the industry, we help businesses of all sizes transform their operations using technology-driven solutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+      <div class="px-4 w-full max-w-[100%] text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-12">Our Services</h2>
+        <div class="grid grid-cols-6 sm:grid-cols-8 lg:grid-cols-12 gap-6">
+          <div class="col-span-6 sm:col-span-4 lg:col-span-4 p-6 border rounded-lg shadow hover:shadow-lg transition">
+            <h3 class="text-2xl font-semibold mb-2">Web Development</h3>
+            <p>Building responsive, fast, and modern web applications tailored to your business needs.</p>
+          </div>
+          <div class="col-span-6 sm:col-span-4 lg:col-span-4 p-6 border rounded-lg shadow hover:shadow-lg transition">
+            <h3 class="text-2xl font-semibold mb-2">Mobile Apps</h3>
+            <p>Creating mobile experiences on iOS and Android that engage and retain your users.</p>
+          </div>
+          <div class="col-span-6 sm:col-span-4 lg:col-span-4 p-6 border rounded-lg shadow hover:shadow-lg transition">
+            <h3 class="text-2xl font-semibold mb-2">AI & Automation</h3>
+            <p>Integrating AI solutions and automation to streamline operations and boost productivity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import Title1Component from '@/components/Title1Component.vue'
-import Title2Component from '@/components/Title2Component.vue'
-import TitleSub1Component from '@/components/TitleSub1Component.vue'
-import TitleSub2Component from '@/components/TitleSub2Component.vue'
-import TitleSub3Component from '@/components/TitleSub3Component.vue'
-import TitleSub4Component from '@/components/TitleSub4Component.vue'
+import { ref } from "vue";
 
-// 각 섹션 참조
-const title2Ref = ref(null)
-
-// 👇 사용자 정의 부드러운 스크롤 함수 (약 1.5초)
-function smoothScrollTo(targetY, duration = 1500) {
-  const startY = window.scrollY
-  const distance = targetY - startY
-  const startTime = performance.now()
-
-  function animation(currentTime) {
-    const elapsed = currentTime - startTime
-    const progress = Math.min(elapsed / duration, 1)
-
-    // easeInOutCubic 가속 곡선
-    const ease = progress < 0.5
-      ? 4 * progress * progress * progress
-      : 1 - Math.pow(-2 * progress + 2, 3) / 2
-
-    window.scrollTo(0, startY + distance * ease)
-
-    if (progress < 1) {
-      requestAnimationFrame(animation)
-    }
-  }
-
-  requestAnimationFrame(animation)
-}
-
-// Title1의 버튼 클릭 시 실행
-function scrollToNext() {
-  const targetY = title2Ref.value.offsetTop
-  smoothScrollTo(targetY, 1500) // 1500ms = 1.5초 동안 이동
-}
+const mobileMenu = ref(false);
 </script>
 
+<style scoped>
+body {
+  padding-top: 80px; /* 헤더 높이 확보 */
+}
+</style>

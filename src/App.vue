@@ -1,7 +1,7 @@
 <template>
   <v-app>
-  <header-componet/>
 
+  <header-componet_1_2/> 
   <router-view/>
   <footer-componet/>
   </v-app>   
@@ -10,7 +10,8 @@
 <script setup>
 import { onMounted } from 'vue'
 import HeaderComponet from './components/HeaderComponet.vue'
- 
+import HeaderComponet_1_1 from './components/HeaderComponet_1-1.vue';
+import HeaderComponet_1_2 from './components/HeaderComponet_1-2.vue'; 
 import FooterComponet from './components/FooterComponet.vue'
 
 import router from './router';

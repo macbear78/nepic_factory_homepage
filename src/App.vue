@@ -1,7 +1,7 @@
 <template>
   <v-app>
 
-  <TitleImgSection_1_2></TitleImgSection_1_2>
+  <MidleSection_11/>
   <router-view/>
   <footer-componet/>
   </v-app>   
@@ -15,8 +15,10 @@ import HeaderComponet_1_2 from './components/HeaderComponet_1-2.vue';
 import FooterComponet from './components/FooterComponet.vue'
 import TitleImgSection_1_1 from './components/TitleImgSection_1-1.vue';
 import TitleImgSection_1_2 from './components/TitleImgSection_1-2.vue';
+import MidleSection_1_1 from './components/MidleSection_1-1.vue';
 
 import router from './router';
+import MidleSection_11 from './components/MidleSection_1-1.vue';
 
 onMounted(() => {
   router.push({path:'/main'});

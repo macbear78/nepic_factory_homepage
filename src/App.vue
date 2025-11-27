@@ -1,7 +1,7 @@
 <template>
   <v-app>
 
-  <TitleImgSection_1_1></TitleImgSection_1_1>
+  <TitleImgSection_1_2></TitleImgSection_1_2>
   <router-view/>
   <footer-componet/>
   </v-app>   
@@ -14,6 +14,7 @@ import HeaderComponet_1_1 from './components/HeaderComponet_1-1.vue';
 import HeaderComponet_1_2 from './components/HeaderComponet_1-2.vue'; 
 import FooterComponet from './components/FooterComponet.vue'
 import TitleImgSection_1_1 from './components/TitleImgSection_1-1.vue';
+import TitleImgSection_1_2 from './components/TitleImgSection_1-2.vue';
 
 import router from './router';
 

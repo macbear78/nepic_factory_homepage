@@ -38,6 +38,7 @@ onMounted(() => {
     animationA.value = "fade-up";
   }, 200);
 
+
   // B 나중에 등장
   setTimeout(() => {
     animationB.value = "fade-up";
